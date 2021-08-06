@@ -1,0 +1,14 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}What's Trying to Kill Us Today (and a poem){% endblock %}
+
+
+{% block content %}
+<h1>What's Trying to Kill Us Today?</h1>
+<span class="border">
+    {{ death|safe }}
+</span>
+
+<span class="border center">
+  {{ poem|safe }}
+</span>
+{% endblock %}
