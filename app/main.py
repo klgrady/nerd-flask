@@ -11,8 +11,13 @@ KEY = app.config["NASA_API_KEY"]
 
 def get_photo():
     URL = 'https://api.nasa.gov/planetary/apod?count=1&api_key=' + KEY
-    resp = requests.get(URL)
-    photo = resp.json()[0]["url"]
+    try:
+        resp = requests.get(URL)
+        caption = resp.json()[0]["title"] + ' - ' + resp.json()[0]["copyright"] + ' - ' + resp.json()[0]["date"]
+        photo = '<figure style="display:block;border:1px;margin-left:auto;margin-right:auto"><img alt = "' + caption + '" src="' + resp.json()[0]["url"] + '" height="250" style="border:1px;display:block;margin-left:auto;margin-right:auto" />'
+        photo += '<figcaption style="text-align:center">' + caption + '</figcaption></figure>'
+    except:
+        return "[sorry, photo unavailable]"
     return photo
 
 def get_asteroid():
@@ -32,7 +37,7 @@ def get_asteroid():
 
     except:
         ret_string = "Sorry, there was an error fetching the list of things trying to kill us right now. Try refreshing."
-        
+
     return ret_string
 
 def get_poem():
