@@ -3,12 +3,18 @@
 
 
 {% block content %}
-<h1>What's Trying to Kill Us Today?</h1>
-<span class="border">
-    {{ death|safe }}
-</span>
-
-<span class="border center">
-  {{ poem|safe }}
-</span>
+<div style="background-color: bisque; width:60%; align-content:center">
+    <h1 style="text-align: center;">What's Trying to Kill Us Today?</h1>
+    <div class="border" style="text-align:center;">
+        {{ death|safe }}
+    </div>
+    <img src={{ background|safe }} height="250" style="border:1px;margin-left:auto;margin-right:auto;display:block">
+    <div class="border center" style="text-align:center; margin-top:100px">
+        <div>Soothe your soul now with some poetry and pretend like imminent extinction isn't a thing...</div>
+    {{ poem|safe }}
+    <div style="margin: top 30px;"><h4>All better, right? Pro tip: a stiff drink also helps</h4></div>
+    <div><h5>Have a great day!</h5></div>
+    </div>
+</div>
 {% endblock %}
+</body>
