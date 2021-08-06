@@ -4,7 +4,7 @@ from datetime import datetime
 import sys
 
 app = Flask(__name__)
-app.config.from_object('config')
+app.config.from_pyfile('config.py')
 KEY = app.config["NASA_API_KEY"]
 
 def get_asteroid():
